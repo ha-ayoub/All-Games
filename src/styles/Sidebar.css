@@ -131,6 +131,10 @@
   overflow-y: auto;
 }
 
+.sidebar-nav-secondary {
+  padding: 1rem;
+}
+
 .nav-item {
   display: flex;
   align-items: center;

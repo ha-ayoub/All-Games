@@ -18,8 +18,8 @@ function About() {
             Ce projet rassemble quatre jeux populaires dans une interface moderne et intuitive.
           </p>
           <p>
-            L'objectif principal était de créer une plateforme unifiée et professionnelle 
-            pour héberger plusieurs jeux indépendants, avec une expérience utilisateur fluide 
+            L'objectif principal était de créer une plateforme unifiée et professionnelle
+            pour héberger plusieurs jeux indépendants, avec une expérience utilisateur fluide
             et un design moderne.
           </p>
         </section>
@@ -31,28 +31,32 @@ function About() {
               <span className="game-emoji">❌</span>
               <div>
                 <h3>Tic Tac Toe</h3>
-                <p>Le classique jeu de morpion pour deux joueurs</p>
+                <p><strong>Objectif :</strong> Alignez 3 symboles (X ou O) horizontalement, verticalement ou en diagonale.</p>
+                <p><strong>Comment jouer :</strong> Cliquez sur une case vide pour placer votre symbole. Jouez à tour de rôle avec votre adversaire.</p>
               </div>
             </div>
             <div className="game-info">
               <span className="game-emoji">🎯</span>
               <div>
                 <h3>Hangman</h3>
-                <p>Devinez le mot lettre par lettre</p>
+                <p><strong>Objectif :</strong> Devinez le mot mystère lettre par lettre avant que le pendu ne soit complet.</p>
+                <p><strong>Comment jouer :</strong> Cliquez sur les lettres pour deviner. Attention aux erreurs !</p>
               </div>
             </div>
             <div className="game-info">
               <span className="game-emoji">🃏</span>
               <div>
                 <h3>Memory Card</h3>
-                <p>Testez votre mémoire en retrouvant les paires</p>
+                <p><strong>Objectif :</strong> Retrouvez toutes les paires de cartes identiques.</p>
+                <p><strong>Comment jouer :</strong> Cliquez sur deux cartes pour les retourner. Si elles correspondent, elles restent visibles.</p>
               </div>
             </div>
             <div className="game-info">
               <span className="game-emoji">🔢</span>
               <div>
                 <h3>Sudoku</h3>
-                <p>Résolvez la grille de logique</p>
+                <p><strong>Objectif :</strong> Remplissez la grille avec les chiffres de 1 à 9 sans répétition.</p>
+                <p><strong>Comment jouer :</strong> Cliquez sur une case et sélectionnez un chiffre. Chaque ligne, colonne et région doit contenir les chiffres 1-9.</p>
               </div>
             </div>
           </div>

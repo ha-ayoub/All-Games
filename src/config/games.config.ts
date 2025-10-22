@@ -1,6 +1,24 @@
-import { Grid3x3, Target, Brain, Hash, Home, Info} from 'lucide-react';
-import type { GameConfig, NavItem } from '../utils/types';
+import { Grid3x3, Target, Brain, Hash, Home, Info, HelpCircle} from 'lucide-react';
+import type { FAQItem, GameConfig, NavItem } from '../utils/types';
 
+export const FAQ_ITEMS: FAQItem[] = [
+    {
+      question: "Comment jouer aux jeux ?",
+      answer: "Cliquez sur n'importe quelle carte de jeu depuis la page d'accueil ou utilisez le menu de navigation à gauche. Chaque jeu a ses propres règles.",
+    },
+    {
+      question: "Comment changer le thème (mode clair/sombre) ?",
+      answer: "Utilisez le toggle situé dans la barre latérale en haut.",
+    },
+    {
+      question: "Les jeux fonctionnent-ils sur mobile ?",
+      answer: "Oui ! Tous nos jeux sont optimisés pour mobile, tablette et desktop. L'interface s'adapte automatiquement à la taille de votre écran.",
+    },
+    {
+      question: "Puis-je jouer hors ligne ?",
+      answer: "Une fois les jeux chargés, vous pouvez continuer à jouer même en cas de perte de connexion internet.",
+    }
+  ];
 
 export const GAMES_CONFIG: GameConfig[] = [
   {
@@ -57,13 +75,9 @@ export const NAV_ITEMS: NavItem[] = [
     icon: game.icon,
     color: game.color
   })),
-  { 
-    path: '/about', 
-    label: 'À propos', 
-    icon: Info 
-  },
 ];
 
-// export const addNewGame = (game: GameConfig) => {
-//   GAMES_CONFIG.push(game);
-// };
+export const SECONDARY_NAV_ITEMS: NavItem[] = [
+  { path: '/about', label: 'À propos', icon: Info },
+  { path: '/help', label: 'Aide', icon: HelpCircle },
+];

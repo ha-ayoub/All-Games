@@ -28,3 +28,9 @@ export interface NavItem {
 export interface LayoutProps {
   children: ReactNode;
 }
+
+//Help
+export interface FAQItem {
+  question: string;
+  answer: string;
+}

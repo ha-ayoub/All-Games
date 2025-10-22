@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import { GAMES_CONFIG } from './config/games.config';
+import Help from './pages/help/Help';
 
 type GameComponents = Record<string, LazyExoticComponent<() => JSX.Element>>;
 
@@ -25,6 +26,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/help" element={<Help />} />
               
               {GAMES_CONFIG.map(game => {
                 const GameComponent = gameComponents[game.id];
