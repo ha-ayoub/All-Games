@@ -1,10 +1,7 @@
-import { useState, type ReactNode } from 'react';
-import Sidebar from './Sidebar';
+import { useState} from 'react';
+import Sidebar from './Sidebar/Sidebar';
 import '../styles/Layout.css';
-
-interface LayoutProps {
-  children: ReactNode;
-}
+import type { LayoutProps } from '../utils/types';
 
 function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);

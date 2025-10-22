@@ -1,40 +1,47 @@
-import { Suspense } from 'react'
+import { Suspense, lazy, type LazyExoticComponent, type JSX } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeProvider';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
+import { GAMES_CONFIG } from './config/games.config';
 
-// const TicTacToe = React.lazy(() => import('./games/tictactoe'));
-// const Hangman = React.lazy(() => import('./games/hangman'));
-// const Memory = React.lazy(() => import('./games/memory'));
-// const Sudoku = React.lazy(() => import('./games/sudoku'));
+type GameComponents = Record<string, LazyExoticComponent<() => JSX.Element>>;
+
+const gameComponents: GameComponents = Object.fromEntries(
+  GAMES_CONFIG.map((game) => [ game.id, lazy(() => import(`./games/${game.id}`)),]));
 
 function App() {
-
   return (
-   <ThemeProvider>
+    <ThemeProvider>
       <Router>
         <Layout>
           <Suspense fallback={
             <div className="loading-container">
-              <div className="loading-spinner"></div>
-              <p>Chargement du jeu...</p>
+              <div className="loading-spinner" />
+              <p className="loading-text">Chargement du jeu...</p>
             </div>
           }>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/tictactoe" element={<About />} />
-              <Route path="/hangman" element={<About />} />
-              <Route path="/memory" element={<About />} />
-              <Route path="/sudoku" element={<About />} />
+              
+              {GAMES_CONFIG.map(game => {
+                const GameComponent = gameComponents[game.id];
+                return (
+                  <Route 
+                    key={game.id}
+                    path={game.path} 
+                    element={<GameComponent />} 
+                  />
+                );
+              })}
             </Routes>
           </Suspense>
         </Layout>
       </Router>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;
