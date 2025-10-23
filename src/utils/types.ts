@@ -1,21 +1,26 @@
 import type { LucideIcon} from 'lucide-react';
 import type { ReactNode } from 'react';
 
-//GameCard
 export interface GameCardProps {
   game: GameConfig;
 }
 
-//GameConfig
+export interface GameCategory {
+  id: string;
+  color: string;
+  category: string;
+}
 export interface GameConfig {
   id: string;
   title: string;
   description: string;
   path: string;
   image: string;
+  image2: string;
+  objective: string;
+  instructions: string;
   icon: LucideIcon;
-  color: string;
-  category?: string;
+  gameCategory: GameCategory;
 }
 export interface NavItem {
   path: string;
@@ -24,18 +29,15 @@ export interface NavItem {
   color?: string;
 }
 
-//Layout
 export interface LayoutProps {
   children: ReactNode;
 }
 
-//Help
 export interface FAQItem {
   question: string;
   answer: string;
 }
 
-//Home
 export interface HomeHeaderProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;

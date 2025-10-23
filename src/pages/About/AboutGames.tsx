@@ -1,5 +1,5 @@
 import { Gamepad2 } from "lucide-react";
-import { GAMES_INFO } from "../../constants/gameInfo";
+import { GAMES_CONFIG } from "../../config/games.config";
 
 export default function AboutGames() {
     return (
@@ -11,9 +11,9 @@ export default function AboutGames() {
                 Les Jeux
             </h2>
             <div className="games-list">
-                {GAMES_INFO.map(({ id, title, image, objective, instructions }) => (
+                {GAMES_CONFIG.map(({ id, title, image2, objective, instructions }) => (
                     <div key={id} className="game-info">
-                        <img src={image} alt={title} className="game-image" />
+                        <img src={image2} alt={title} className="game-image" />
                         <div>
                             <h3>{title}</h3>
                             <p><strong>Objectif :</strong> {objective}</p>

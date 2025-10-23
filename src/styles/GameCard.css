@@ -38,26 +38,6 @@
   transform: scale(1.1);
 }
 
-.game-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity var(--transition-speed) var(--transition-ease);
-  color: white;
-}
-
-.game-card:hover .game-card-overlay {
-  opacity: 1;
-}
-
 .game-card-content {
   padding: 1.5rem;
   display: flex;

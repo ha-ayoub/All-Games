@@ -4,8 +4,8 @@ import { ArrowRight } from 'lucide-react';
 export default function GameCardContent({game}: GameCardProps) {
     return (
         <div className="game-card-content">
-            {game.category && (
-                <span className="game-card-category">{game.category}</span>
+            {game.gameCategory.category && (
+                <span className="game-card-category">{game.gameCategory.category}</span>
             )}
 
             <h3 className="game-card-title">{game.title}</h3>

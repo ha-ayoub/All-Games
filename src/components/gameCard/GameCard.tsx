@@ -11,7 +11,7 @@ function GameCard({ game }: GameCardProps) {
     <Link
       to={game.path}
       className="game-card"
-      style={{ '--game-color': game.color } as React.CSSProperties}
+      style={{ '--game-color': game.gameCategory.color } as React.CSSProperties}
     >
       <GameCardImg game={game} />
       <GameCardContent game={game} />
