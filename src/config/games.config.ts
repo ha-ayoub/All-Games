@@ -60,6 +60,16 @@ export const GAMES_CONFIG: GameConfig[] = [
     icon: Hash,
     color: '#8b5cf6',
     category: 'Logique'
+  },
+    {
+    id: 'rockPaperScissors',
+    title: 'Rock Paper Scissors',
+    description: `Battez l'ordinateur en choisissant la meilleure option : Pierre, Feuille ou Ciseaux.` ,
+    path: '/rockPaperScissors',
+    image: '/rock-paper-scissors.png',
+    icon: Hash,
+    color: '#3b82f6',
+    category: 'Stratégie'
   }
 ];
 

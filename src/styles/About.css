@@ -79,16 +79,22 @@
   box-shadow: var(--shadow-md);
 }
 
-.game-emoji {
-  font-size: 2.5rem;
-  min-width: 60px;
-  text-align: center;
+.game-image {
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background);
   border-radius: var(--radius-md);
   padding: 0.75rem;
+  object-fit: contain;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-image:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-md);
 }
 
 .game-info h3 {
@@ -104,29 +110,45 @@
   margin-bottom: 0;
 }
 
+.about-section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--seconde) 0%, var(--seconde-dark) 100%);
+  border-radius: var(--radius-md);
+  color: white;
+  margin-right: 0.2rem;
+  vertical-align: middle;
+}
+
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .tech-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.625rem 1.25rem;
+  padding: 0.425rem 1.05rem;
   background: var(--primary);
   color: white;
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 400;
   transition: all var(--transition-speed);
   box-shadow: var(--shadow-sm);
 }
 
 .tech-badge:hover {
   background: var(--primary-hover);
-  transform: translateY(-3px);
+  transform: translateY(-1.5px);
   box-shadow: var(--shadow-md);
 }
 
@@ -159,32 +181,8 @@
   box-shadow: var(--shadow-md);
 }
 
-.features-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.features-list li {
-  padding: 1.25rem;
-  background: var(--surface);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  transition: all var(--transition-speed);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.features-list li:hover {
-  border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
-  background: var(--surface-hover);
+.social-link span{
+  margin-Left: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -211,10 +209,6 @@
   .social-links {
     flex-direction: column;
   }
-
-  .features-list {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
@@ -235,7 +229,7 @@
     padding: 1.25rem;
   }
 
-  .game-emoji {
+  .game-image {
     font-size: 2rem;
     min-width: 50px;
   }
