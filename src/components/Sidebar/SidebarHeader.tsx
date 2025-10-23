@@ -1,4 +1,4 @@
-import { Gamepad2, X } from "lucide-react";
+import { Gamepad , X } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
 
 interface SidebarProps {
@@ -11,11 +11,11 @@ export default function SidebarHeader({ onClose }: SidebarProps) {
             <div className="sidebar-header">
                 <div className="sidebar-logo">
                     <div className="logo-icon-wrapper">
-                        <Gamepad2 size={32} strokeWidth={2} />
+                        <Gamepad size={32} strokeWidth={2} />
                     </div>
                     <div className="logo-text">
-                        <h1>All Games</h1>
-                        <span className="logo-subtitle">Gaming Hub</span>
+                        <h1>Arcadia</h1>
+                        <span className="logo-subtitle">Where The Game Begins.</span>
                     </div>
                 </div>
 

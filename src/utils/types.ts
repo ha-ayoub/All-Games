@@ -34,3 +34,9 @@ export interface FAQItem {
   question: string;
   answer: string;
 }
+
+//Home
+export interface HomeHeaderProps {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+}

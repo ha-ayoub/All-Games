@@ -1,7 +1,7 @@
 export default function HelpTrick() {
     return (
         <section className="help-section">
-            <h2>💡 Astuces & Conseils</h2>
+            <h2>Astuces & Conseils</h2>
             <div className="tips-grid">
                 <div className="tip-card">
                     <div className="tip-icon">🌘</div>
