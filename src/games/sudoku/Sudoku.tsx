@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { GRID_SIZE, MESSAGES, TOTAL_CELLS } from "./utils/constants";
+import { fetchSudoku } from "./utils/fetch-sudoku";
 import Controls from "./components/Controls";
 import DifficultySelector from "./components/DifficultySelector";
 import GridGame from "./components/GridGame";
 import Status from "./components/Status";
-import { GRID_SIZE, MESSAGES, TOTAL_CELLS } from "./utils/constants";
-import { fetchSudoku } from "./utils/fetch-sudoku";
-import "./styles/Sudoku.css";
 import Header from "./components/Header";
+import "./styles/Sudoku.css";
+
 
 function Sudoku() {
     const [board, setBoard] = useState(
@@ -85,7 +86,7 @@ function Sudoku() {
                     setAnimationInterval(null);
                 }
             }, 30);
-            setAnimationInterval(interval);
+            setAnimationInterval(interval as unknown as number);
         } else {
             setStatus(`${MESSAGES.INCORRECT}`);
             setGreenCount(0);
