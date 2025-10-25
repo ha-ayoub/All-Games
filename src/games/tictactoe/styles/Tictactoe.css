@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
 
 .tictactoe-game {
+  --background: initial;
+  --surface: initial;
+  --surface-hover: initial;
+  
   font-family: 'Roboto Slab', sans-serif;
   line-height: 1.5;
   color: #ebe7ef;
   
   background: radial-gradient(
       circle at top,
-      rgba(70, 161, 241, 0.78),
-      rgba(149, 103, 250, 0.67)
+      rgba(70, 161, 241, 0.98),
+      rgba(149, 103, 250, 0.97)
     ),
     url('../assets/bg-pattern-dark.png');
   background-repeat: repeat;
@@ -27,6 +31,7 @@
 
 .tictactoe-game header {
   text-align: center;
+  animation: tictactoe-slideIn 0.6s ease-out;
 }
 
 .tictactoe-game header img {
@@ -51,6 +56,7 @@
   background: linear-gradient(#383624, #282617);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
+  animation: tictactoe-slideIn 0.6s ease-out;
 }
 
 .tictactoe-players {
@@ -396,5 +402,16 @@
   .tictactoe-player input {
     width: 8rem;
     font-size: 0.9rem;
+  }
+}
+
+@keyframes tictactoe-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

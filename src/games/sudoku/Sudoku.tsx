@@ -119,9 +119,9 @@ function Sudoku() {
 
     return (
         <div className="sudoku-game">
-            <Header />
             <main>
                 <div className="sudoku-containerApp">
+                    <Header />
                     <Status status={status} />
                     <DifficultySelector difficulty={difficulty} />
                     <GridGame

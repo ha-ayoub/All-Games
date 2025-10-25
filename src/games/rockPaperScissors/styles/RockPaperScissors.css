@@ -26,6 +26,7 @@
 .rps-game-content {
   width: 100%;
   max-width: 1200px;
+  animation: rps-slideIn 0.6s ease-out;
 }
 
 .rps-game-header {
@@ -497,5 +498,16 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes rps-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

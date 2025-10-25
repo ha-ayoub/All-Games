@@ -1,9 +1,9 @@
 .hangman-app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* background: #212529; */
+  background: #212529;
   color: #fff;
   
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh);
   display: flex;
   justify-content: center;
   align-items: center;
