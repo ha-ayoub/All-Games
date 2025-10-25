@@ -1,4 +1,4 @@
-import { Suspense, lazy, type LazyExoticComponent, type JSX } from 'react';
+import { Suspense, lazy, type LazyExoticComponent } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeProvider';
 import Layout from './components/Layout';
@@ -7,10 +7,19 @@ import About from './pages/about/About.tsx';
 import { GAMES_CONFIG } from './config/games.config';
 import Help from './pages/help/Help.tsx';
 
-type GameComponents = Record<string, LazyExoticComponent<() => JSX.Element>>;
+interface GameModule {
+  default: React.ComponentType;
+}
 
-const gameComponents: GameComponents = Object.fromEntries(
-  GAMES_CONFIG.map((game) => [ game.id, lazy(() => import(`./games/${game.id}`)),]));
+const modules = import.meta.glob<GameModule>("./games/*/index.tsx");
+
+const gameComponents: Record<string, LazyExoticComponent<React.ComponentType>> =
+  Object.fromEntries(
+    Object.entries(modules).map(([path, loader]) => {
+      const id = path.split("/")[2];
+      return [id, lazy(() => (loader as () => Promise<GameModule>)())];
+    })
+  );
 
 function App() {
   return (
