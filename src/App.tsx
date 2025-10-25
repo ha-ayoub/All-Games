@@ -2,10 +2,10 @@ import { Suspense, lazy, type LazyExoticComponent, type JSX } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeProvider';
 import Layout from './components/Layout';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
+import Home from './pages/home/Home.tsx';
+import About from './pages/about/About.tsx';
 import { GAMES_CONFIG } from './config/games.config';
-import Help from './pages/help/Help';
+import Help from './pages/help/Help.tsx';
 
 type GameComponents = Record<string, LazyExoticComponent<() => JSX.Element>>;
 

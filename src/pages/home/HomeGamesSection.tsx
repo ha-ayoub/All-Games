@@ -1,4 +1,4 @@
-import GameCard from "../../components/gameCard/GameCard";
+import GameCard from "../../components/gameCard/GameCard.tsx";
 import { GAMES_CONFIG } from "../../config/games.config";
 
 interface HomeGamesSectionProps {
