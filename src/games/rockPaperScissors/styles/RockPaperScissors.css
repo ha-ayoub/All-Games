@@ -1,0 +1,501 @@
+.rps-game {
+  font-family: system-ui, -apple-system, sans-serif;
+  
+  background: linear-gradient(135deg, #1a0f2a 0%, #1c4887 50%, #180f2a 100%);
+  
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin: -2.5rem -3rem;
+  position: relative;
+  overflow: hidden;
+  
+  box-sizing: border-box;
+}
+
+.rps-game *,
+.rps-game *::before,
+.rps-game *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rps-game-content {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.rps-game-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.rps-game-title {
+  font-size: 3.75rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.rps-title-highlight {
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rps-score-board {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.rps-score-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  width: 8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rps-player-score .rps-score-label {
+  color: #7fb4f6 !important;
+}
+
+.rps-computer-score .rps-score-label {
+  color: #cecf6d !important;
+}
+
+.rps-score-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.rps-score-value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rps-score-value.animate {
+  animation: rps-pop 0.6s ease;
+}
+
+.rps-start-message {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: rps-pulse 2s infinite;
+}
+
+.rps-start-message p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+}
+
+.rps-battle-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  min-height: 200px;
+}
+
+.rps-choice-display {
+  text-align: center;
+}
+
+.rps-choice-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rps-choice-circle {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.rps-choice-circle.blue {
+  background: linear-gradient(135deg, #5494fa, #2563eb);
+}
+
+.rps-choice-circle.purple {
+  background: linear-gradient(135deg, #b56df9, #9333ea);
+}
+
+.rps-choice-circle.green {
+  background: linear-gradient(135deg, #43b692, #099773);
+}
+
+.rps-choice-circle.animating {
+  animation: rps-bounce 0.6s infinite;
+}
+
+.rps-choice-circle.pulse {
+  animation: rps-pulse 2s infinite;
+}
+
+.rps-choice-emoji {
+  font-size: 4.5rem;
+}
+
+.rps-result-display {
+  text-align: center;
+  animation: rps-pulse 1s infinite;
+}
+
+.rps-result-text {
+  font-size: 3.75rem;
+  font-weight: bold;
+}
+
+.rps-result-text.win {
+  color: #10b981;
+}
+
+.rps-result-text.lose {
+  color: #ef4444;
+}
+
+.rps-result-text.draw {
+  color: #fbbf24;
+}
+
+.rps-choices-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.rps-choice-button {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.rps-choice-button.blue {
+  background: linear-gradient(135deg, #5494fa, #2563eb);
+}
+
+.rps-choice-button.purple {
+  background: linear-gradient(135deg, #b56df9, #9333ea);
+}
+
+.rps-choice-button.green {
+  background: linear-gradient(135deg, #5dcba8, #048766);
+}
+
+.rps-choice-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+}
+
+.rps-choice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rps-button-overlay {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rps-choice-button:hover:not(:disabled) .rps-button-overlay {
+  opacity: 0.2;
+}
+
+.rps-button-emoji {
+  margin-bottom: 0.9rem ;
+  font-size: 3.75rem;
+  color: white;
+  z-index: 1;
+}
+
+.rps-button-name {
+  position: absolute;
+  bottom: 0.75rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rps-replay-container {
+  text-align: center;
+}
+
+.rps-replay-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #F9B16E, #F68080);
+  color: white;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.rps-replay-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+}
+
+.rps-rules-container {
+  width: 45vh;
+  max-width: 600px;
+  margin: 4rem auto 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(24, 15, 42, 0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rps-rules-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.rps-rules-list {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  margin-left: 1.5rem;
+  list-style: disc;
+}
+
+.rps-rules-list li {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes rps-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rps-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes rps-pop {
+  0% {
+    transform: scale(1);
+    color: inherit;
+  }
+  30% {
+    transform: scale(1.4);
+    color: #22c55e;
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rps-game {
+    margin: -2rem -2rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rps-game {
+    margin: -1.5rem -1rem;
+    padding: 1rem;
+  }
+  
+  .rps-game-title {
+    font-size: 2.5rem;
+  }
+
+  .rps-battle-zone {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .rps-choices-container {
+    flex-wrap: wrap;
+  }
+
+  .rps-choice-button {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .rps-button-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .rps-choice-circle {
+    width: 8rem;
+    height: 8rem;
+  }
+  
+  .rps-choice-emoji {
+    font-size: 3.5rem;
+  }
+  
+  .rps-result-text {
+    font-size: 2.5rem;
+  }
+  
+  .rps-rules-container {
+    width: 35vh;
+    margin-top: 3rem;
+  }
+  
+  .rps-score-board {
+    gap: 1.5rem;
+  }
+  
+  .rps-score-card {
+    width: 7rem;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .rps-score-value {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .rps-game {
+    margin: -1rem -0.5rem;
+  }
+  
+  .rps-game-title {
+    font-size: 2rem;
+  }
+  
+  .rps-choice-button {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .rps-button-emoji {
+    font-size: 2rem;
+  }
+  
+  .rps-button-name {
+    font-size: 0.65rem;
+    bottom: 0.5rem;
+  }
+  
+  .rps-choice-circle {
+    width: 7rem;
+    height: 7rem;
+  }
+  
+  .rps-choice-emoji {
+    font-size: 3rem;
+  }
+  
+  .rps-result-text {
+    font-size: 2rem;
+  }
+  
+  .rps-score-value {
+    font-size: 2rem;
+  }
+  
+  .rps-rules-container {
+    width: 90%;
+    padding: 1rem;
+  }
+  
+  .rps-footer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rps-game-header {
+    margin-bottom: 2rem;
+  }
+  
+  .rps-battle-zone {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .rps-choices-container {
+    gap: 1rem;
+  }
+  
+  .rps-choice-button {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  
+  .rps-button-emoji {
+    font-size: 1.75rem;
+  }
+}
+
+.rps-choice-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+.rps-replay-button:focus-visible {
+  outline: 3px solid rgba(249, 177, 110, 0.5);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rps-game *,
+  .rps-game *::before,
+  .rps-game *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
