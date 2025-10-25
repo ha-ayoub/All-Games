@@ -10,7 +10,7 @@ export default function HomeGamesSection({searchTerm} : HomeGamesSectionProps) {
     const filteredGames = GAMES_CONFIG.filter(game =>
         game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         game.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        game.category?.toLowerCase().includes(searchTerm.toLowerCase())
+        game.gameCategory.category?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (

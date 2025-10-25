@@ -1,4 +1,5 @@
-import { RESULT_TYPES, WIN_CONDITIONS, type Choice, type ResultType } from './constants'
+import { RESULT_TYPES, WIN_CONDITIONS, type ResultType } from './constants'
+import type { Choice } from './types';
 
 export const getRandomChoice = (choices: Choice[]): Choice => {
     return choices[Math.floor(Math.random() * choices.length)]
