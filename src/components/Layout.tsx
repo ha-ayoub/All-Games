@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import Sidebar from './sidebar/Sidebar.tsx';
+import Sidebar from './sidebar_temp/Sidebar.tsx';
 import '../styles/Layout.css';
 import type { LayoutProps } from '../utils/types';
 

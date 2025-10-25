@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeProvider';
 import Layout from './components/Layout';
 import Home from './pages/home/Home.tsx';
-import About from './pages/about/About.tsx';
+import About from './pages/about_temp/About.tsx';
 import { GAMES_CONFIG } from './config/games.config';
 import Help from './pages/help/Help.tsx';
 
