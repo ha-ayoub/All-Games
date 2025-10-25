@@ -6,6 +6,8 @@ import GameBoard from "./components/GameBoard";
 import GameInfo from "./components/GameInfo";
 import VictoryModal from "./components/VictoryModal";
 import "./styles/Memory.css";
+import { usePageMeta } from "../../hooks/usePageMeta";
+import MemoryIcon from '../../../public/Memory-Card-Game-icon.png';
 
 function Memory(){
 const defaultTheme = THEMES[0]!;
@@ -22,6 +24,8 @@ const defaultTheme = THEMES[0]!;
 
   const matchedCount = useMemo(() => deck.filter(c => c.matched).length, [deck]);
   const totalPairs = (size * size) / 2;
+
+  usePageMeta("Univers Arcadia - Memory Card", MemoryIcon);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;

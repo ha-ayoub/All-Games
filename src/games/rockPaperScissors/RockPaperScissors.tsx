@@ -8,6 +8,8 @@ import GameHeader from "./components/GameHeader";
 import GameRules from "./components/GameRules";
 import ReplayButton from "./components/ReplayButton";
 import './styles/RockPaperScissors.css'
+import { usePageMeta } from "../../hooks/usePageMeta";
+import RPSIcon from './assets/rock-paper-scissors.png';
 
 function RockPaperScissors(){
 
@@ -54,6 +56,8 @@ function RockPaperScissors(){
     setResult(null);
     setShowResult(false);
   };
+
+  usePageMeta("Univers Arcadia - Memory Card", RPSIcon);
 
   return (
 

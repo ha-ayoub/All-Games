@@ -7,6 +7,8 @@ import GameOver from './components/GameOver';
 import GameHeader from './components/GameHeader';
 import GameArea from './components/GameArea';
 import './styles/Hangman.css'
+import { usePageMeta } from '../../hooks/usePageMeta';
+import HangmanIcon from '../../../public/Hangman-icon.png';
 
 
 function Hangman() {
@@ -32,6 +34,8 @@ function Hangman() {
             won: false
         });
     };
+
+    usePageMeta("Univers Arcadia - Hangman", HangmanIcon);
 
     useEffect(() => {
         initGame();
