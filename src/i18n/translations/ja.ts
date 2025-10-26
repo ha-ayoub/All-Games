@@ -131,4 +131,4 @@ export const ja = {
     theme: 'テーマ',
     language: '言語',
   },
-} as const;
+};

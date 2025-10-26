@@ -132,4 +132,4 @@ export const ko = {
     theme: '테마',
     language: '언어',
   },
-} as const;
+};

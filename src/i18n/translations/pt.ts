@@ -132,4 +132,4 @@ export const pt = {
     theme: 'Tema',
     language: 'Idioma',
   },
-} as const;
+};
