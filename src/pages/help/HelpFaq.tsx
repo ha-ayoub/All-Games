@@ -1,9 +1,10 @@
 import { ChevronDown } from "lucide-react";
-import { FAQ_ITEMS } from "../../config/games.config";
 import { useState } from "react";
+import { useTranslation } from "../../hooks/useTranslation";
 
 export default function HelpFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useTranslation();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -11,9 +12,9 @@ export default function HelpFaq() {
 
     return (
         <section className="help-section">
-            <h2>Questions Fréquentes (FAQ)</h2>
+            <h2>{t.help.faq} (FAQ)</h2>
             <div className="faq-list">
-                {FAQ_ITEMS.map((item, index) => {
+                {t.help.faqItems.map((item, index) => {
                     return (
                         <div
                             key={index}

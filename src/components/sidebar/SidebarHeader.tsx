@@ -1,11 +1,15 @@
 import { Gamepad , X } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
+import LanguageSelector from "../LanguageSelector";
+import { useTranslation } from "../../hooks/useTranslation";
 
 interface SidebarProps {
     onClose: () => void;
 }
 
 export default function SidebarHeader({ onClose }: SidebarProps) {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="sidebar-header">
@@ -14,8 +18,8 @@ export default function SidebarHeader({ onClose }: SidebarProps) {
                         <Gamepad size={32} strokeWidth={2} />
                     </div>
                     <div className="logo-text">
-                        <h1>Arcadia</h1>
-                        <span className="logo-subtitle">Where The Game Begins.</span>
+                        <h1>{t.sidebar.title}</h1>
+                        <span className="logo-subtitle">{t.sidebar.subtitle}</span>
                     </div>
                 </div>
 
@@ -29,6 +33,7 @@ export default function SidebarHeader({ onClose }: SidebarProps) {
             </div>
 
             <div className="sidebar-actions">
+                <LanguageSelector />
                 <ThemeToggle />
             </div>
         </>

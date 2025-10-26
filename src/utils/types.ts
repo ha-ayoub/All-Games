@@ -11,14 +11,10 @@ export interface GameCategory {
   category: string;
 }
 export interface GameConfig {
-  id: string;
-  title: string;
-  description: string;
+  id: 'tictactoe' | 'hangman' | 'memory' | 'sudoku' | 'rockPaperScissors';
   path: string;
   image: string;
   image2: string;
-  objective: string;
-  instructions: string;
   icon: LucideIcon;
   gameCategory: GameCategory;
 }
@@ -31,11 +27,6 @@ export interface NavItem {
 
 export interface LayoutProps {
   children: ReactNode;
-}
-
-export interface FAQItem {
-  question: string;
-  answer: string;
 }
 
 export interface HomeHeaderProps {

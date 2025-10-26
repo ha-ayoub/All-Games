@@ -1,24 +1,28 @@
+import { useTranslation } from "../../hooks/useTranslation";
+
 export default function HelpTrick() {
+    const { t } = useTranslation();
+
     return (
         <section className="help-section">
-            <h2>Astuces & Conseils</h2>
+            <h2>{t.help.tips}</h2>
             <div className="tips-grid">
                 <div className="tip-card">
                     <div className="tip-icon">🌘</div>
-                    <h3>Utilisez le mode sombre</h3>
-                    <p>Jouez confortablement le soir en activant le mode sombre via le toggle dans la sidebar.</p>
+                    <h3>{t.help.tip_dark}</h3>
+                    <p>{t.help.tip_darkDesc}</p>
                 </div>
 
                 <div className="tip-card">
                     <div className="tip-icon">📱</div>
-                    <h3>Jouez en déplacement</h3>
-                    <p>Tous les jeux sont optimisés pour mobile. Ajoutez le site à votre écran d'accueil pour un accès rapide.</p>
+                    <h3>{t.help.tip_play}</h3>
+                    <p>{t.help.tip_playDesc}</p>
                 </div>
 
                 <div className="tip-card">
                     <div className="tip-icon">🔍</div>
-                    <h3>Recherche rapide</h3>
-                    <p>Utilisez la barre de recherche sur la page d'accueil pour trouver rapidement un jeu.</p>
+                    <h3>{t.help.tip_search}</h3>
+                    <p>{t.help.tip_searchDesc}</p>
                 </div>
             </div>
         </section>

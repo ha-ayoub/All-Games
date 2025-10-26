@@ -1,0 +1,50 @@
+.language-select {
+  flex: 1;
+  height: 40px;
+  padding: 0rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.80rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  font-family: var(--font-family);
+}
+
+.language-select:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.language-select option {
+  padding: 0.5rem;
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+[dir="rtl"] .language-label {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language-select {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    padding: 0.875rem 1rem;
+  }
+  
+  .language-select {
+    font-size: 0.7rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
