@@ -240,10 +240,12 @@
   opacity: 0;
   transition: opacity var(--transition-speed);
   backdrop-filter: blur(4px);
+  pointer-events: none;
 }
 
 .sidebar-overlay.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 1024px) {

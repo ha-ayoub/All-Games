@@ -7,6 +7,8 @@ import Board from "./components/Board";
 import GameOver from "./components/GameOver";
 import Header from "./components/Header";
 import "./styles/Tictactoe.css";
+import TicTacToeIcon from '../../../public/TicTacToe-icon.png';
+import { usePageMeta } from "../../hooks/usePageMeta";
 
 function TicTacToe() {
   const [gameTurns, setGameTurns] = useState<Turn[]>([]);
@@ -16,6 +18,8 @@ function TicTacToe() {
   const gameBoard = deriveGameBoard(gameTurns);
   const winner = deriveWinner(gameBoard, players);
   const hasDraw = gameTurns.length === 9 && !winner;
+
+  usePageMeta("Univers Arcadia - Tic Tac Toe", TicTacToeIcon);
 
   function handleSelectSquare(rowIndex: number, colIndex: number) {
     setGameTurns((prevTurns) => {

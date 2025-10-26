@@ -6,6 +6,8 @@ import Home from './pages/home/Home.tsx';
 import About from './pages/about/About.tsx';
 import { GAMES_CONFIG } from './config/games.config';
 import Help from './pages/help/Help.tsx';
+import { usePageMeta } from './hooks/usePageMeta.ts';
+import DefaultIcon from '../public/play-game.png';
 
 interface GameModule {
   default: React.ComponentType;
@@ -22,6 +24,9 @@ const gameComponents: Record<string, LazyExoticComponent<React.ComponentType>> =
   );
 
 function App() {
+  
+  usePageMeta("Univers Arcadia", DefaultIcon);
+
   return (
     <ThemeProvider>
       <Router>

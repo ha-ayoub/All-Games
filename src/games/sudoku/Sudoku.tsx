@@ -7,6 +7,8 @@ import GridGame from "./components/GridGame";
 import Status from "./components/Status";
 import Header from "./components/Header";
 import "./styles/Sudoku.css";
+import { usePageMeta } from "../../hooks/usePageMeta";
+import SudokuIcon from '../../../public/sudoku-logo.png';
 
 
 function Sudoku() {
@@ -32,6 +34,8 @@ function Sudoku() {
     const [selected, setSelected] = useState<[number, number] | null>(null);
     const [animationInterval, setAnimationInterval] = useState<number | null>(null);
     const [difficulty, setDifficulty] = useState<string>(`${MESSAGES.UNKNOWN}`);
+
+    usePageMeta("Univers Arcadia - Sudoku", SudokuIcon);
 
     useEffect(() => {
         fetchSudoku({
