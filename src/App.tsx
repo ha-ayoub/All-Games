@@ -8,6 +8,7 @@ import { GAMES_CONFIG } from './config/games.config';
 import Help from './pages/help/Help.tsx';
 import { usePageMeta } from './hooks/usePageMeta.ts';
 import DefaultIcon from '../public/play-game.png';
+import { LanguageProvider } from './context/LanguageProvider.tsx';
 
 interface GameModule {
   default: React.ComponentType;
@@ -24,39 +25,41 @@ const gameComponents: Record<string, LazyExoticComponent<React.ComponentType>> =
   );
 
 function App() {
-  
+
   usePageMeta("Univers Arcadia", DefaultIcon);
 
   return (
-    <ThemeProvider>
-      <Router>
-        <Layout>
-          <Suspense fallback={
-            <div className="loading-container">
-              <div className="loading-spinner" />
-              <p className="loading-text">Chargement du jeu...</p>
-            </div>
-          }>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/help" element={<Help />} />
-              
-              {GAMES_CONFIG.map(game => {
-                const GameComponent = gameComponents[game.id];
-                return (
-                  <Route 
-                    key={game.id}
-                    path={game.path} 
-                    element={<GameComponent />} 
-                  />
-                );
-              })}
-            </Routes>
-          </Suspense>
-        </Layout>
-      </Router>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <Router>
+          <Layout>
+            <Suspense fallback={
+              <div className="loading-container">
+                <div className="loading-spinner" />
+                <p className="loading-text">Chargement du jeu...</p>
+              </div>
+            }>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/help" element={<Help />} />
+
+                {GAMES_CONFIG.map(game => {
+                  const GameComponent = gameComponents[game.id];
+                  return (
+                    <Route
+                      key={game.id}
+                      path={game.path}
+                      element={<GameComponent />}
+                    />
+                  );
+                })}
+              </Routes>
+            </Suspense>
+          </Layout>
+        </Router>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }
 

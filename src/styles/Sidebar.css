@@ -71,13 +71,17 @@
 }
 
 .sidebar-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .theme-toggle {
   position: relative;
-  width: 35%;
+  width: 100px;
+  flex-shrink: 0;
   height: 40px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -88,7 +92,6 @@
   align-items: center;
   justify-content: space-between;
   transition: all var(--transition-speed);
-  margin-left: auto;
 }
 
 .theme-toggle:hover {
