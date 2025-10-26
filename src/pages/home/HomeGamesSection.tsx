@@ -14,7 +14,7 @@ export default function HomeGamesSection({searchTerm} : HomeGamesSectionProps) {
         const gameTranslation = getGameTranslation(game, t);
         return gameTranslation.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                gameTranslation.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-               gameTranslation.category.toLowerCase().includes(searchTerm.toLowerCase());
+               gameTranslation.category?.toLowerCase().includes(searchTerm.toLowerCase() ?? false);
     });
     
     return (
