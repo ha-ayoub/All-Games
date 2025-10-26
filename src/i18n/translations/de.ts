@@ -132,4 +132,4 @@ export const de = {
     theme: 'Design',
     language: 'Sprache',
   },
-} as const;
+};
