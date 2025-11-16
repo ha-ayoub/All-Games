@@ -1,4 +1,4 @@
-# 🕹️ Univers Arcadida 
+# 🕹️ Univers Arcadia 
 
 **Langues / Languages:**  
 🇫🇷 [Français](#fr) | 🇬🇧 [English](#en)
